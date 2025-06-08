@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fokusin.</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>🎯Fokusin.</h1>
+    <div id="datetime"></div>
+  </header>
+
+  <main>
+    <section id="pomodoro">
+      <h2>⏳ Timer Belajar</h2>
+      <input type="text" id="subject" placeholder="Belajar apa?" required>
+      <div class="time-inputs">
+        <input type="number" id="hours" placeholder="Jam">
+        <input type="number" id="minutes" placeholder="Menit">
+        <input type="number" id="seconds" placeholder="Detik">
+      </div>
+      <div id="countdown">00:00:00</div>
+      <progress id="progressBar" value="0" max="100"></progress>
+      <div class="controls">
+        <button id="startBtn">Start</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </section>
+
+    <section id="todo">
+      <h2>📋 To-Do List</h2>
+      <input type="text" id="taskTitle" placeholder="Tugas...">
+      <input type="time" id="taskDeadline">
+      <button id="addTaskBtn">Tambah</button>
+      <ul id="taskList"></ul>
+    </section>
+
+    <section id="distraksi">
+      <h2>📵 Distraksi Tracker</h2>
+      <button id="distractBtn">Terganggu!</button>
+      <ul id="distraksiList"></ul>
+    </section>
+
+    <section id="focusmode">
+      <h2>🔒 Focus Mode</h2>
+      <button id="focusModeBtn">Aktifkan</button>
+    </section>
+
+    <section id="music">
+      <h2>🎵 Lagu Fokus</h2>
+      <button id="playMusicBtn">Play Lofi Music</button>
+      <div id="musicPlayer"></div>
+    </section>
+
+    <section id="resumeSection">
+      <h2>📝 Resume Harian</h2>
+      <p><strong>Tanggal:</strong> <span id="resumeDate"></span></p>
+      <h3>Belajar Hari Ini:</h3>
+      <ul id="resumeBelajarList"></ul>
+      <h3>To-Do List:</h3>
+      <ul id="resumeTodoList"></ul>
+      <h3>Distraksi:</h3>
+      <ul id="resumeDistraksiList"></ul>
+      <button id="showResume">
+        🚀 Lihat Resume
+      </button>
+    </section>
+  </main>
+    <footer>
+    Created with ❤️ by Rakha Fausta
+  </footer>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
