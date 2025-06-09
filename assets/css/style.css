@@ -6,7 +6,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Styling untuk body dengan latar belakang putih */
 body {
   margin: 0;
   padding: 0;
@@ -19,7 +18,6 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-/* Styling untuk absolute-hero seperti Sijazoo Family, menyebar ke seluruh halaman */
 .absolute-hero {
   position: absolute;
   top: 0;
@@ -32,7 +30,6 @@ body {
   z-index: -1;
 }
 
-/* Lingkaran pertama */
 .bg-shape1 {
   width: 400px;
   height: 400px;
@@ -43,7 +40,6 @@ body {
   animation: one 10s infinite;
 }
 
-/* Lingkaran kedua */
 .bg-shape2 {
   width: 300px;
   height: 300px;
@@ -54,7 +50,6 @@ body {
   animation: two 10s infinite;
 }
 
-/* Lingkaran ketiga */
 .bg-shape3 {
   width: 350px;
   height: 350px;
@@ -65,7 +60,6 @@ body {
   animation: three 10s infinite;
 }
 
-/* Warna dari Sijazoo Family */
 .bg-pink {
   background-color: rgb(217, 70, 239);
 }
@@ -78,7 +72,6 @@ body {
   background-color: rgb(168, 85, 247);
 }
 
-/* Efek opacity dan blur */
 .opacity-50 {
   opacity: 0.5;
 }
@@ -87,7 +80,6 @@ body {
   filter: blur(90px);
 }
 
-/* Animasi dari Sijazoo Family, disesuaikan untuk menyebar */
 @keyframes one {
   0% {
     transform: translate(0, 0);
@@ -158,7 +150,6 @@ header {
   animation: gradientShift 6s ease infinite;
 }
 
-/* Animasi gradasi bergerak untuk header */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -175,6 +166,13 @@ header h1 {
 header h1:hover {
   transform: translateY(-2px);
   transition: transform 0.2s ease;
+}
+
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
 }
 
 header .tagline {
@@ -334,6 +332,17 @@ footer {
   font-size: 0.95em;
   color: #4b5563;
   margin: 0.5em;
+}
+
+.iframe-container {
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.iframe-container iframe {
+  border-radius: 8px;
+  display: block;
 }
 
 @media (max-width: 600px) {

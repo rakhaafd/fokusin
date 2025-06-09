@@ -10,6 +10,38 @@ function updateDocumentTitle() {
   document.title = `${hrs}:${mins}:${secs} - Fokusin.`;
 }
 
+// ========== TYPING ANIMATION ==========
+document.addEventListener("DOMContentLoaded", function () {
+  const typingTextElement = document.querySelector(".typing-text");
+  const text = "Fokus-in.";
+  let index = 0;
+  let isTyping = true;
+
+  function typeText() {
+    if (isTyping) {
+      if (index < text.length) {
+        typingTextElement.textContent = "💡 " + text.slice(0, index + 1);
+        index++;
+        setTimeout(typeText, 100);
+      } else {
+        isTyping = false;
+        setTimeout(typeText, 1000);
+      }
+    } else {
+      if (index > 0) {
+        typingTextElement.textContent = "💡 " + text.slice(0, index - 1);
+        index--;
+        setTimeout(typeText, 50);
+      } else {
+        isTyping = true;
+        setTimeout(typeText, 500);
+      }
+    }
+  }
+
+  typeText();
+});
+
 // ========== JAM REALTIME ==========
 setInterval(() => {
   const now = new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" });
@@ -162,7 +194,7 @@ let isMusicPlaying = false;
 document.getElementById("playMusicBtn").onclick = () => {
   const player = document.getElementById("musicPlayer");
   if (!isMusicPlaying) {
-    player.innerHTML = `<iframe width="100%" height="150" src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1" frameborder="0" allow="autoplay"></iframe>`;
+    player.innerHTML = `<iframe width="100%" height="300" src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1" frameborder="0" allow="autoplay" style="padding: 1.2em 0;"></iframe>`;
     isMusicPlaying = true;
   } else {
     player.innerHTML = "";
