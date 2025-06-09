@@ -1,4 +1,3 @@
-// ========== TITLE FOCUS TRACK STYLE ==========
 function updateDocumentTitle() {
   if (remaining <= 0) {
     document.title = "✅ Waktu Belajar Selesai!";
@@ -10,7 +9,6 @@ function updateDocumentTitle() {
   document.title = `${hrs}:${mins}:${secs} - Fokusin.`;
 }
 
-// ========== TYPING ANIMATION ==========
 document.addEventListener("DOMContentLoaded", function () {
   const typingTextElement = document.querySelector(".typing-text");
   const text = "Fokus-in.";
@@ -42,20 +40,17 @@ document.addEventListener("DOMContentLoaded", function () {
   typeText();
 });
 
-// ========== JAM REALTIME ==========
 setInterval(() => {
   const now = new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" });
   document.getElementById("datetime").innerText = now;
 }, 1000);
 
-// ========== VARIABEL GLOBAL ==========
 let interval;
 let remaining = 0;
 let isPaused = false;
 let belajarLog = [];
 let belajarDone = false;
 
-// ========== POMODORO TIMER ==========
 function updateCountdown() {
   const hrs = String(Math.floor(remaining / 3600)).padStart(2, '0');
   const mins = String(Math.floor((remaining % 3600) / 60)).padStart(2, '0');
@@ -136,7 +131,6 @@ function resetTimer() {
   document.title = "Fokusin.";
 }
 
-// ========== TO-DO LIST ==========
 document.getElementById("addTaskBtn").onclick = () => {
   const title = document.getElementById("taskTitle").value;
   const deadline = document.getElementById("taskDeadline").value;
@@ -165,7 +159,6 @@ document.getElementById("addTaskBtn").onclick = () => {
   checkResumeReady();
 };
 
-// ========== DISTRAKSI TRACKER ==========
 document.getElementById("distractBtn").onclick = () => {
   const alasan = prompt("Kenapa Terganggu?");
   if (!alasan) return;
@@ -177,7 +170,6 @@ document.getElementById("distractBtn").onclick = () => {
   checkResumeReady();
 };
 
-// ========== FOCUS MODE ==========
 let isFull = false;
 document.getElementById("focusModeBtn").onclick = () => {
   if (!isFull) {
@@ -189,7 +181,6 @@ document.getElementById("focusModeBtn").onclick = () => {
   }
 };
 
-// ========== MUSIC ==========
 let isMusicPlaying = false;
 document.getElementById("playMusicBtn").onclick = () => {
   const player = document.getElementById("musicPlayer");
@@ -202,7 +193,6 @@ document.getElementById("playMusicBtn").onclick = () => {
   }
 };
 
-// ========== CHECK BUTTON RESUME ==========
 function checkResumeReady() {
   const allChecked = [...document.querySelectorAll('#taskList input[type="checkbox"]')].every(c => c.checked);
   const showResumeBtn = document.getElementById("showResume");
@@ -220,7 +210,6 @@ function checkResumeReady() {
   }
 }
 
-// ========== RESUME HARIAN ==========
 function showDailyResume() {
   const date = new Date().toLocaleDateString("id-ID", { timeZone: "Asia/Jakarta" });
   document.getElementById("resumeDate").textContent = date;
@@ -268,10 +257,8 @@ function showDailyResume() {
   showResumeBtn.removeEventListener("click", showDailyResume);
 }
 
-// ========== BUTTON EVENTS ==========
 document.getElementById("startBtn").addEventListener("click", startTimer);
 document.getElementById("pauseBtn").addEventListener("click", pauseTimer);
 document.getElementById("resetBtn").addEventListener("click", resetTimer);
 
-// ========== SETUP AWAL ==========
 checkResumeReady();
