@@ -61,28 +61,39 @@ function updateCountdown() {
   const total = parseInt(document.getElementById("progressBar").max);
   document.getElementById("progressBar").value = total - remaining;
 
-  if (remaining <= 0) {
-    clearInterval(interval);
-    const audio = new Audio("assets/audio/selesai.mp3");
-    audio.play();
+if (remaining <= 0) {
+  clearInterval(interval);
 
-    setTimeout(() => {
-      const subject = document.getElementById("subject").value || "Tidak diketahui";
-      const progressMax = parseInt(document.getElementById("progressBar").max);
-      const h = String(Math.floor(progressMax / 3600)).padStart(2, '0');
-      const m = String(Math.floor((progressMax % 3600) / 60)).padStart(2, '0');
-      const s = String(progressMax % 60).padStart(2, '0');
+  const audio = new Audio("assets/audio/selesai.mp3");
+  audio.loop = true;
+  audio.play();
 
-      belajarLog.push({
-        subject: subject,
-        duration: `${h}:${m}:${s}`
-      });
+  setTimeout(() => {
+    const subject = document.getElementById("subject").value || "Tidak diketahui";
+    const progressMax = parseInt(document.getElementById("progressBar").max);
+    const h = String(Math.floor(progressMax / 3600)).padStart(2, '0');
+    const m = String(Math.floor((progressMax % 3600) / 60)).padStart(2, '0');
+    const s = String(progressMax % 60).padStart(2, '0');
 
-      alert("✅ Waktu Belajar Selesai!");
+    belajarLog.push({
+      subject: subject,
+      duration: `${h}:${m}:${s}`
+    });
+
+    Swal.fire({
+      title: '✅ Waktu Belajar Selesai!',
+      text: 'Klik OK untuk melanjutkan.',
+      icon: 'success',
+      confirmButtonText: 'OK',
+      allowOutsideClick: false
+    }).then(() => {
+      audio.pause();
+      audio.currentTime = 0;
       belajarDone = true;
       checkResumeReady();
-    }, 3000);
-  }
+    });
+  }, 500);
+}
 }
 
 function startTimer() {
