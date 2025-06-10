@@ -240,8 +240,11 @@ h2 {
   color: #4f46e5;
   font-size: 1.5em;
   margin-bottom: 0.75em;
-  border-left: 5px solid #4f46e5;
   padding-left: 0.5em;
+}
+
+.heading {
+    border-left: 5px solid #4f46e5;
 }
 
 input[type="text"],
@@ -373,5 +376,11 @@ footer {
   }
   header {
     font-size: 1em;
+  }
+  .swal2-popup {
+    width: 90% !important; /* Fit popup to mobile screen */
+    max-width: 320px; /* Cap width for small screens */
+    padding: 1em !important; /* Slightly reduce padding */
+    border-radius: 12px !important; /* Consistent with app design */
   }
 }
